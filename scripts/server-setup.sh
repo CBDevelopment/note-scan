@@ -64,6 +64,11 @@ else
   prompt_secret "ANTHROPIC_API_KEY"    ANTHROPIC_API_KEY
 
   echo ""
+  info "GitHub PAT for pulling images from GHCR (needs read:packages scope)"
+  info "Create one at: github.com/settings/tokens → Generate new token (classic)"
+  prompt_secret "GHCR_TOKEN" GHCR_TOKEN
+
+  echo ""
   info "Optional — press Enter to accept the defaults shown in []"
 
   read -rp $'\033[1;33m[input]\033[0m MONTHLY_BUDGET_CENTS [2000]: ' MONTHLY_BUDGET_CENTS
@@ -88,6 +93,9 @@ RATE_LIMIT_PAGES_PER_DAY=300
 MAX_PAGES_PER_BATCH=30
 
 DATABASE_URL=file:/data/notescan.db
+
+# GitHub PAT for pulling images from GHCR (read:packages)
+GHCR_TOKEN=${GHCR_TOKEN}
 EOF
 
   chmod 600 "$ENV_FILE"

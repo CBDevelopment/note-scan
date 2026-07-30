@@ -1,5 +1,6 @@
 services:
   app:
+    image: ghcr.io/cbdevelopment/note-scan:latest
     build: .
     restart: unless-stopped
     ports:
