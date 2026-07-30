@@ -126,6 +126,7 @@ export async function POST(req: Request) {
             transcribePage(page.base64, page.mimeType)
           )
         } catch (err) {
+          console.error(`[ocr] page ${page.index} failed:`, err)
           emit({
             type: 'error',
             index: page.index,

@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
-  basePath: '/notescan',
+  basePath: process.env.NODE_ENV === 'production' ? '/notescan' : '',
   experimental: {
     serverComponentsExternalPackages: ['@libsql/client'],
   },

@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation'
-import { auth } from '@/lib/auth'
+import { auth, signIn } from '@/lib/auth'
 
 export default async function LandingPage() {
   const session = await auth()
@@ -20,13 +20,18 @@ export default async function LandingPage() {
           </p>
         </div>
 
-        <a
-          href="/api/auth/signin"
-          className="flex items-center justify-center gap-3 w-full rounded-lg border border-rule bg-paper px-5 py-3 text-sm font-medium text-ink transition-colors hover:bg-wash focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-        >
-          <GoogleIcon />
-          Continue with Google
-        </a>
+        <form action={async () => {
+          'use server'
+          await signIn('google', { redirectTo: '/scan' })
+        }}>
+          <button
+            type="submit"
+            className="flex items-center justify-center gap-3 w-full rounded-lg border border-rule bg-paper px-5 py-3 text-sm font-medium text-ink transition-colors hover:bg-wash focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          >
+            <GoogleIcon />
+            Continue with Google
+          </button>
+        </form>
 
         <p className="text-xs text-ink-muted leading-relaxed">
           Photos are sent to the transcription model and deleted immediately after. Only text is saved.
