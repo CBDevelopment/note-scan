@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1A1A18;
+    --ink-muted: #6B6B66;
+    --rule: #E6E4DF;
+    --wash: #F7F6F3;
+    --accent: #2B50D8;
+    --flag: #C2410C;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+}
+
+@layer utilities {
+  .label {
+    @apply font-mono text-label uppercase tracking-widest text-ink-muted;
+  }
+}

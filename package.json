@@ -1,0 +1,42 @@
+{
+  "name": "notescan",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx lib/db/migrate.ts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.27.3",
+    "@auth/drizzle-adapter": "^1.4.2",
+    "@libsql/client": "^0.14.0",
+    "autoprefixer": "^10.5.4",
+    "docx": "^8.5.0",
+    "drizzle-orm": "^0.33.0",
+    "googleapis": "^144.0.0",
+    "nanoid": "^5.0.7",
+    "next": "14.2.5",
+    "next-auth": "^5.0.0-beta.19",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.16.1",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "drizzle-kit": "^0.24.2",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.5",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.10",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  }
+}
